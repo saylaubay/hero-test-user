@@ -22,6 +22,17 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    @GetMapping("/{id}")
+    public User getUser(@PathVariable Integer id){
+
+        Optional<User> optionalUser = userRepository.findById(id);
+        if (!optionalUser.isPresent()){
+            return new User();
+        }
+        User user = optionalUser.get();
+        return user;
+    }
+
     @PostMapping
     public User add(@RequestBody User user){
         User save = userRepository.save(user);
