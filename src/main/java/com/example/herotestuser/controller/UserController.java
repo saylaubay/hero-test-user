@@ -22,6 +22,7 @@ public class UserController {
         return userRepository.findAll();
     }
 
+    //
     @GetMapping("/{id}")
     public User getUser(@PathVariable Integer id){
 
