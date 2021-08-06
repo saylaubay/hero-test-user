@@ -12,13 +12,15 @@ public class WebMvc {
     public WebMvcConfigurer corsConfigurer() {
         return new WebMvcConfigurer() {
 
+
+
             @Override
             public void addCorsMappings(CorsRegistry registry) {
                 registry
-                        .addMapping("/**");
+                        .addMapping("/**")
 //                        .allowedMethods("GET", "POST", "PUT", "DELETE")
 //                        .allowedHeaders("*")
-//                        .allowedOrigins("http://localhost:3000");// Ui host
+                        .allowedOrigins("http://localhost:3000");// Ui host
             }
         };
     }

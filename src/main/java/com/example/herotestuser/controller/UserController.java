@@ -11,6 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 @RestController
+
 @RequestMapping("/user")
 public class UserController {
 
@@ -41,8 +42,7 @@ public class UserController {
 
     @PostMapping
     public User add(@RequestBody User user){
-        User save = userRepository.save(user);
-        return save;
+        return userRepository.save(user);
     }
 
     @PutMapping("/{id}")
@@ -59,6 +59,8 @@ public class UserController {
         return true;
     }
 
+
+    @CrossOrigin(origins = "http://localhost:3000")
     @DeleteMapping("/{id}")
     public boolean delete(@PathVariable Integer id){
         userRepository.deleteById(id);
